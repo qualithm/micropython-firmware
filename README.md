@@ -49,9 +49,9 @@ macOS can't reach a USB serial port:
 pipx run esptool --chip esp32c3 -p <your-serial-port> write_flash 0x0 micropython-firmware-0.1.0-esp32c3-unsigned.bin
 ```
 
-Each release attaches one image per target as `micropython-firmware-<version>-<target>-unsigned.bin`.
-Connect at 115200 baud for the REPL. Its banner names the MicroPython version, the firmware and its
-version.
+Each release attaches one image per target as
+`micropython-firmware-<version>-<target>-unsigned.bin`. Connect at 115200 baud for the REPL. Its
+banner names the MicroPython version, the firmware and its version.
 
 ## Configuration
 
