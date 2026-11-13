@@ -46,7 +46,7 @@ hand, use [esptool](https://docs.espressif.com/projects/esptool/) from the host,
 macOS can't reach a USB serial port:
 
 ```bash
-pipx run esptool --chip esp32c3 -p <your-serial-port> write_flash 0x0 micropython-firmware-0.1.0-esp32c3-unsigned.bin
+pipx run esptool --chip esp32c3 -p <your-serial-port> write_flash 0x0 micropython-firmware-0.1.1-esp32c3-unsigned.bin
 ```
 
 Each release attaches one image per target as
