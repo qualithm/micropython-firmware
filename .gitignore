@@ -1,0 +1,24 @@
+# Base block, the same in every repo
+.DS_Store
+.env*
+.idea/
+.vscode/
+coverage/
+
+# The fetched MicroPython source, and every build under it
+.micropython/
+
+# Board, host-test and release builds
+build/
+dist/
+
+# Coverage
+*.gcda
+*.gcno
+lcov.info
+.coverage
+coverage.xml
+
+# Python caches
+__pycache__/
+.ruff_cache/

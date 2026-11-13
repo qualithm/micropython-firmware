@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "commands": [
+    {
+      "run": "git ls-files -z \"*.c\" \"*.h\" | docker run --rm -i -v \"$PWD\":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh format",
+      "timeout": "10m",
+      "dir": "."
+    },
+    {
+      "run": "git ls-files -z \"cmodules/*.c\" \":!cmodules/*/mod*.c\" | docker run --rm -i -v \"$PWD\":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh lint",
+      "timeout": "20m",
+      "dir": "."
+    },
+    {
+      "run": "docker run --rm -v \"$PWD\":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh host-test",
+      "timeout": "20m",
+      "dir": "."
+    },
+    {
+      "run": "docker run --rm -v \"$PWD\":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh unix-port",
+      "timeout": "30m",
+      "dir": "."
+    },
+    {
+      "run": "docker run --rm -v \"$PWD\":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh build ESP32_GENERIC_S3",
+      "timeout": "45m",
+      "dir": "."
+    },
+    {
+      "run": "docker run --rm -v \"$PWD\":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh build ESP32_GENERIC_C3",
+      "timeout": "45m",
+      "dir": "."
+    }
+  ]
+}

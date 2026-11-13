@@ -1,0 +1,32 @@
+line-length = 100
+# The oldest target ruff knows, so it never rewrites to syntax MicroPython lacks.
+target-version = "py37"
+# Files dx syncs in follow dx's style, and the fetched MicroPython tree isn't ours.
+extend-exclude = [".claude", ".micropython"]
+
+[lint]
+select = [
+  "E",   # pycodestyle errors
+  "W",   # pycodestyle warnings
+  "F",   # pyflakes
+  "I",   # isort
+  "N",   # pep8-naming
+  "B",   # bugbear
+  "S",   # bandit
+  "A",   # builtins
+  "C4",  # comprehensions
+  "D",   # pydocstyle
+  "RET", # returns
+  "SIM", # simplify
+  "TID", # tidy imports
+  "ANN", # annotations
+  "PL",  # pylint
+  "RUF", # ruff
+]
+
+[lint.pydocstyle]
+convention = "google"
+
+[lint.per-file-ignores]
+# Tests run under MicroPython's unittest too: TestCase methods, no annotations.
+"tests/**" = ["D", "ANN", "PLR2004", "PT"]

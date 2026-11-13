@@ -1,0 +1,12 @@
+# C style for ESP-IDF firmware: 4-space indent, braces on their own line only for functions.
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 100
+BreakBeforeBraces: Linux
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+InsertBraces: true
+PointerAlignment: Right
+IncludeBlocks: Preserve
+SortIncludes: CaseSensitive

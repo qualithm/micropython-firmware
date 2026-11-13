@@ -1,0 +1,58 @@
+name: Work item
+description: Standard format for any pickable work item on the Engineering board.
+title: "<repo/area>: <imperative summary>"
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One uniform format so any work can be picked up cold. Set **Initiative** (the nearest
+        existing option — list them with `dx project initiative list`; propose a new one only when
+        ~3+ concretely-scoped issues share a narrative no existing option covers) and **Size**
+        (agent-session effort: XS one-file tweak → XL split-before-pickup). Both can be set in the
+        same step as adding the issue: `dx project add --url <url> --initiative <name> --size <S>`.
+        Keep the running state in **comments** (end each session with a Snapshot comment, posted via
+        `dx project snapshot` for a consistent format).
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: One paragraph — the durable reason this exists (the problem it solves).
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / contract
+      description: What's in, what's explicitly out, and any load-bearing invariants.
+    validations:
+      required: true
+  - type: textarea
+    id: consumers
+    attributes:
+      label: Consumers / reachability
+      description:
+        Who consumes this when it lands, and can they reach it (UI, API, SDK, MCP, CLI)? A
+        capability whose only caller is another part of the same change is a flag, not a pass —
+        agent surfaces count as consumers. If the consumer is out of scope, file the follow-up issue
+        as part of this work and link it. Past misses — a run ledger nothing exposed
+        (qualithm/pm#153), a command outbox no route called (qualithm/pm#155), templates argued
+        agent-first with no agent surface (qualithm/pm#154).
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      description: Checklist that defines Done.
+      value: |
+        - [ ] …
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Links
+      description: Initiative, related issues, and code paths.
+    validations:
+      required: false

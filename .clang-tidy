@@ -1,0 +1,25 @@
+# A small strict set: bug-prone patterns, the static analyzer, unchecked standard-library
+# results and unbraced bodies. Every finding fails the build. Widen it deliberately.
+Checks: >
+  -*,
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  cert-err33-c,
+  cert-err34-c,
+  cert-str34-c,
+  clang-analyzer-*,
+  -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+  misc-redundant-expression,
+  readability-braces-around-statements,
+  readability-isolate-declaration,
+  readability-non-const-parameter
+WarningsAsErrors: "*"
+# The repo's own headers; ESP-IDF and the fetched MicroPython tree are not ours to fix.
+HeaderFilterRegex: "/cmodules/"
+ExcludeHeaderFilterRegex: '/(esp-idf|idf|[.]micropython)/'
+# GCC-only flags ESP-IDF may compile with, which clang rejects.
+RemovedArgs:
+  - -fno-tree-switch-conversion
+  - -fstrict-volatile-bitfields
+ExtraArgs:
+  - -Wno-unknown-warning-option

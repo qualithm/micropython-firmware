@@ -1,0 +1,17 @@
+#!/bin/sh
+# Runs every command in .claude/checks.json, the same list CI's jobs run. Needs Docker.
+# Enable with: git config core.hooksPath .githooks
+
+set -e
+
+python3 - <<'PY'
+import json
+import subprocess
+import sys
+
+for command in json.load(open(".claude/checks.json"))["commands"]:
+    print(f"→ {command['run'][:100]}…", flush=True)
+    if subprocess.run(["bash", "-eo", "pipefail", "-c", command["run"]], cwd=command.get("dir", ".")).returncode != 0:
+        sys.exit(1)
+print("✓ All pre-commit checks passed!")
+PY
