@@ -1,11 +1,8 @@
 # Micropython Firmware
 
-<!-- Uncomment after the first release -->
-<!--
 [![CI](https://github.com/qualithm/micropython-firmware/actions/workflows/ci.yaml/badge.svg)](https://github.com/qualithm/micropython-firmware/actions/workflows/ci.yaml)
 [![codecov](https://codecov.io/gh/qualithm/micropython-firmware/graph/badge.svg)](https://codecov.io/gh/qualithm/micropython-firmware)
 [![Release](https://img.shields.io/github/v/release/qualithm/micropython-firmware?display_name=tag&sort=semver)](https://github.com/qualithm/micropython-firmware/releases/latest)
--->
 
 MicroPython firmware images for ESP32 boards, with the Qualithm device SDK frozen in.
 
