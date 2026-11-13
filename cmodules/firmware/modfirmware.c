@@ -7,7 +7,7 @@
 #include "py/runtime.h"
 
 #ifndef FIRMWARE_VERSION
-#error "FIRMWARE_VERSION must be defined by cmodules/firmware/micropython.cmake"
+#error "FIRMWARE_VERSION must be defined by boards/firmware.cmake"
 #endif
 
 static mp_obj_t firmware_version(void)
