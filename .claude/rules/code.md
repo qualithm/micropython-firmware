@@ -41,4 +41,4 @@ at 80% each.
 ## Generated files
 
 `.github/workflows/` and `.claude/checks/` come from dx; change the template and sync from dx, never
-edit them here. `CI Required` and `PR Title` are required.
+edit them here. Required checks: `CI Required`, `PR Title`, `Decision Citations`.

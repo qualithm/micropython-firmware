@@ -10,6 +10,7 @@ This repo's `ci.yaml` is generated from `dx/ci-templates/micropython-firmware.ya
 `.claude/checks/micropython-firmware.sh`, in the same pinned ESP-IDF image as CI, through Docker:
 
 ```bash
+bash .claude/checks/images.sh
 git ls-files -z "*.c" "*.h" | docker run --rm -i -v "$PWD":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh format   # `clang-format -i` and `ruff format` (same versions) rewrite the files
 git ls-files -z "cmodules/*.c" ":!cmodules/*/mod*.c" | docker run --rm -i -v "$PWD":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh lint
 docker run --rm -v "$PWD":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh host-test
