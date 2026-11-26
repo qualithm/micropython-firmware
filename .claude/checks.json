@@ -2,6 +2,11 @@
   "version": 1,
   "commands": [
     {
+      "run": "bash .claude/checks/images.sh",
+      "timeout": "10m",
+      "dir": "."
+    },
+    {
       "run": "git ls-files -z \"*.c\" \"*.h\" | docker run --rm -i -v \"$PWD\":/project -w /project espressif/idf:v5.5.5@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2 bash .claude/checks/micropython-firmware.sh format",
       "timeout": "10m",
       "dir": "."
