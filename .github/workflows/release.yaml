@@ -120,6 +120,11 @@ jobs:
       # bootloader and app binaries under ports/esp32/build-<board>/ (espsecure.py
       # sign_data --version 2) before the merge below, and the assets drop
       # their -unsigned suffix. Until then every release image is unsigned.
+      # The hook is filled in this template (dx ci-templates/): the key goes
+      # on the repo's tag-only `release` environment (dx
+      # environments/micropython-firmware.json), the signing job sets `environment:
+      # release`, and the key is recorded in cloud's iac/secret-manifest.yaml
+      # with any per-repo value in dx release-sync.json.
 
       # One flashable image per board, written at offset 0 with
       # `esptool.py --chip <target> write_flash 0x0 <file>`. MicroPython's
